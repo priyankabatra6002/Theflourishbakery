@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Flourish Bakers - Home</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Georgia", serif;
+    background-color: #fff;
+    color: #2a2a2a;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    font-family: "Arial", sans-serif;
+  }
+
+  .nav-left,
+  .nav-center,
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-left button {
+    background: #b4986f;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .nav-center {
+    /*flex-grow: 1;*/
+    justify-content: center;
+    font-family: "Georgia", serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #b4986f;
+  }
+
+  .nav-center span {
+    color: #b4986f;
+  }
+
+  .nav-right a {
+    margin-left: 20px;
+    font-size: 14px;
+    color: #2a2a2a;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .nav-right a:hover {
+    color: #b4986f;
+  }
+
+  .nav-right a::after {
+    content: " ▼";
+    font-size: 9px;
+  }
+
+  .nav-right a.active {
+    color: #b4986f;
+    font-weight: 700;
+  }
+
+  .banner {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .banner img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+  }
+
+  .banner-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b4986f;
+    font-family: "Georgia", serif;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    user-select: none;
+  }
+
+  .banner-text small {
+    display: block;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    
+    letter-spacing: 2px;
+  }
+
+  .order-btn {
+    position: absolute;
+    left: 6%;
+    top: 60%;
+    background: #2a2a2a;
+    color: white;
+    border-radius: 50%;
+    width: 130px;
+    height: 120px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Arial", sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 0 8px #b4986f;
+    user-select: none;
+  }
+
+  .order-btn span {
+    display: block;
+  }
+
+  .order-btn span.red {
+    background: #b40000;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    font-weight: 900;
+  }
+
+  /*.banner::after {
+    /*content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    /*background:
+      radial-gradient(circle at 10% 100%, #fff 30px, transparent 31px),
+      radial-gradient(circle at 30% 100%, #fff 30px, transparent 31px),
+      radial-gradient(circle at 50% 100%, #fff 30px, transparent 31px),
+      radial-gradient(circle at 70% 100%, #fff 30px, transparent 31px),
+      radial-gradient(circle at 90% 100%, #fff 30px, transparent 31px);
+    background-repeat: repeat-x;
+    background-size: 80px 60px;
+  
+  }*/
+
+  .welcome {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .welcome small {
+    font-size: 12px;
+    color: #b4986f;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+
+  .welcome h1 {
+    font-family: "Georgia", serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .welcome p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+    font-family: "Arial", sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    .banner-text {
+      font-size: 2.5rem;
+      top: 15%;
+    }
+
+    .order-btn {
+      width: 100px;
+      height: 100px;
+      font-size: 0.8rem;
+      left: 10%;
+      top: 50%;
+    }
+  }
+
+  .bakery-footer {
+    background: #2b1d16;
+    color: #f5f0e6;
+    font-family: 'Georgia', serif;
+    padding-top: 50px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 40px 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 250px;
+}
+
+.footer-section h2,
+.footer-section h4 {
+    color: #d4b483;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #e6e0d8;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #e6e0d8;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    color: #d4b483;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    background: #1c120d;
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    color: #cfc7bb;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.about {
+    display:flex;
+    padding: 10px;
+    gap: 60px;
+}
+
+.about-left {
+    width: 50%;
+    display: inline-block;
+}
+
+.large-img {
+  display: inline-block;
+    width: 650px;
+    border-radius: 4px;
+    height: 580px;
+}
+
+.about-right {
+    width: 50%;
+}
+
+.about-right p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 17px;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.features {
+    margin-top: 40px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 80px;
+    height: 70px;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    margin-right: 15px;
+}
+
+.feature h4 {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-image {
+  width: 50%;
+}
+
+.left-image img {
+  width: 645px;
+  height: 550px;
+  object-fit: cover;
+  padding-left: 25px;
+}
+
+.right-content {
+  width: 50%;
+  padding: 30px;
+}
+
+.right-content h1 {
+  font-family:algerian;
+  text-align: center;
+  color: #2b1d16;
+  font-size: 50px;
+  margin-bottom: 20px;
+  
+}
+
+.cakes {
+  display: flex;
+  gap: 30px;
+}
+
+.cake-card {
+  width: 100%;
+}
+
+.cake-card img {
+  width: 100%;
+  height: 250px;
+  border-radius: 6px;
+}
+
+.cake-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin: 15px 0 10px;
+}
+
+.cake-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 500;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ccc;
+  background: none;
+  cursor: pointer;
+}
+
+.qty span {
+  font-size: 14px;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <button>Select Location</button>
+  </div>
+  <div class="nav-center" aria-label="Layers Bakeshop logo">
+   THE  FL⏺URISH<br /><small style="font-size: 25px; color: #b4986f; margin-top: 10px;"><pre> B A K E R S</pre></small>
+  </div>
+  <div class="nav-right">
+    <a href="index.html" class="active">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About Us</a>
+    <a href="social.html">Social Media</a>
+    <a href="orders.html">Orders</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</nav>
+
+<section class="banner">
+  <img src="WhatsApp Image 2026-01-11 at 6.05.10 PM (1).jpeg" alt="Cake with caramel drizzle on plate" />
+  <div class="banner-text">
+    <small>BITE INTO THE</small>
+    Bliss
+  </div>
+  <div class="order-btn" role="button"  aria-label="Order online now">
+    <span>PICK YOUR FAV ITEM</span>
+    <span class="red">NOW!</span>
+  </div>
+</section>
+
+<section class="welcome">
+  <small STYLE="font-size: 25PX;">WELCOME TO</SMALL>
+  <h1>THE FLOURISH BAKERS</h1>
+  <p>
+    Like a fantasy that feels unreal, every delicacy by ‘Flourish’ holds a charm that makes
+    your sweet moments even sweeter.
+  </p>
+</section>
+
+<section class="about">
+    <div class="about-left">
+        <img src="triplet.jpeg" class="large-img" alt="Cake">
+        
+    </div>
+
+    <div class="about-right">
+        <p>
+            Like a fantasy that feels unreal, every delicacy by ‘flourish’ holds a charm
+            that enchants with every bite, allowing one to be swept into a moment of bliss,
+            making all your dessert dreams come true!
+        </p>
+
+        <p>
+            Founded in Lahore in 2020, the philosophy of flourish Bakers was simple;
+            to create connections through desserts while striking the ideal balance
+            between flavor and feeling.
+        </p>
+
+        <p>
+            Since the beginning, flourish has secured an irreplaceable spot in the hearts of people.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🎂</div>
+                <h4>QUALITY BAKING</h4>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🏆</div>
+                <h4>BEST DESSERT IN TOWN</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+  
+  <div class="left-image">
+    <img src="custom big.jpeg" alt="Chocolate Display">
+  </div>
+
+  
+  <div class="right-content">
+    <h1>Customized Cakes</h1>
+
+    <div class="cakes">
+
+      
+      <div class="cake-card">
+        <img src="customized.jpeg" alt="Three Milk Cake">
+        <h2>Customized Birthday Cake</h2>
+        <p>
+          Vanilla sponge cake in three kind of milk,
+          Whole milk, Evaporated milk and Condensed milk
+        </p>
+        <div class="bottom">
+          <span class="price">Rs 2,300</span>
+        </div>
+      </div>
+
+      
+      <div class="cake-card">
+        <img src="custom.jpeg" alt="Lotus Cake">
+        <h2>Customized Family Cake</h2>
+        <p>
+          Lotus biscoff spread with cream cheese on a
+          fluffy vanilla sponge and crushed lotus biscuits on top
+        </p>
+        <div class="bottom">
+          <span class="price">Rs 3,000</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="bakery-footer">
+    <div class="footer-content">
+
+        <div class="footer-section">
+            <h2>The Flourish Bakers</h2>
+            <p>
+                Bite into the bliss of freshly baked cakes, pastries,
+                and desserts made with love and perfection.
+            </p>
+        </div>
+
+
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>📍 Pakistan</p>
+            <p>📞 +92 3337241355</p>
+            <p>✉️ info@flourishbakers.com</p>
+        </div>
+
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 The Flourish Bakers | Crafted with ❤️</p>
+    </div>
+</footer>
+
+</body>
+</html>

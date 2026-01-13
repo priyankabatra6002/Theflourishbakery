@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>THE FLOURISH BAKERS - Menu</title>
+<style>
+  body {
+    font-family: "Georgia", serif;
+    background-color: #fff;
+    color: #2a2a2a;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    font-family: "Arial", sans-serif;
+  }
+  .nav-left,
+  .nav-center,
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  .nav-left button {
+    background: #b4986f;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .nav-center {
+    flex-grow: 1;
+    justify-content: center;
+    font-family: "Georgia", serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #b4986f;
+  }
+  .nav-center span {
+    color: #b4986f;
+  }
+  .nav-right a {
+    margin-left: 20px;
+    font-size: 14px;
+    color: #2a2a2a;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+  }
+  .nav-right a:hover {
+    color: #b4986f;
+  }
+  .nav-right a::after {
+    content: " ▼";
+    font-size: 9px;
+  }
+  .nav-right a.active {
+    color: #b4986f;
+    font-weight: 700;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: "Arial", sans-serif;
+  }
+
+  h1 {
+    font-family: "Georgia", serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #b4986f;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /*ul.menu-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul.menu-list li {
+    padding: 15px 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ul.menu-list li:last-child {
+    border-bottom: none;
+  }*/
+
+  .item-name {
+    font-weight: 600;
+  }
+
+  .item-price {
+    color: #b4986f;
+    font-weight: 700;
+  }
+   .container {
+            padding: 40px 60px;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 42px;
+            margin-bottom: 40px;
+            
+        }
+
+        /* Product Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            justify-content: center;
+            gap: 20px;
+            grid-template-columns: repeat(4,1fr);
+            width: 1000px;
+            
+            align-items: center;
+            margin:0 auto;
+            
+
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit:cover;
+        }
+
+        .card h3 {
+            margin: 15px 0 5px;
+            font-size: 22px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .categories {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categories button {
+    padding: 0px 10px;
+    font-size: 30px;
+    background: #fffefd;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+    height: 250px;
+}
+
+.product h3 {
+    margin: 10px 0 5px;
+}
+
+.product p {
+    font-size: 14px;
+    color: #555;
+}
+
+.product span {
+    font-weight: bold;
+    display: block;
+    margin: 8px 0;
+}
+
+.product button {
+    background: #6b4f3f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <button>Select Location</button>
+  </div>
+  <div class="nav-center" aria-label="Layers Bakeshop logo">
+   THE FL⏺URISH<br /><small style="font-size: 17px; color: #b4986f; margin-top: 10px;"><pre> BAKERS</pre></small>
+  </div>
+  <div class="nav-right">
+    <a href="index.html">Home</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="about.html">About Us</a>
+    <a href="social.html">Social Media</a>
+    <a href="orders.html">Orders</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</nav>
+
+<main>
+  
+  <div class="container">
+    <h1>Our Menu</h1>
+
+    <div class="grid" style="margin-right: 300px;">
+
+        <div class="card">
+          
+            <img src="cake.avif" alt="Cake">
+            <div class="categories">
+    <button onclick="showCakes()">Cakes</button>
+</div>
+            <p>8 products</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Brownies">
+            <div class="categories">
+    <button onclick="showBrownies()">Brownies</button>
+</div>
+            
+            <p>3 products</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b" alt="Desserts">
+            <div class="categories">
+    <button onclick="showDesserts()">Desserts</button>
+</div>
+            
+            <p>2 products</p>
+        </div> 
+    </div>
+</div>
+
+<div id="products" class="products"></div>
+
+<div class="cart">
+    <h2>🛒 Cart</h2>
+    <ul id="cartItems"></ul>
+    <h3>Total: ₹<span id="total">0</span></h3>
+</div>
+</main>
+
+<script>
+  const productsDiv = document.getElementById("products");
+const cartItems = document.getElementById("cartItems");
+const totalSpan = document.getElementById("total");
+
+let total = 0;
+
+const cakes = [
+    { name: "Lotus Cake", price: 1200, desc: "Creamy lotus biscoff delight", img: "lotus.jpeg" },
+    { name: "Red Velvet Cake", price: 1500, desc: "Soft & rich red velvet", img: "redvelvet.jpeg" },
+    { name: "Chocolate Fudge Cake", price: 1400, desc: "Loaded chocolate fudge", img: "fudge.jpeg" },
+    { name: "Black Forest Cake", price: 1300, desc: "Chocolate & cherries", img: "blackforest.jpeg" },
+    { name: "Pineapple Cake", price: 1100, desc: "Fresh pineapple flavor", img: "pineapple.jpeg" },
+    { name: "KitKat Cake", price: 1450, desc: "Crunchy KitKat layers", img: "kitkat.jpeg" },
+    { name: "Coffee Cake", price: 1250, desc: "Rich coffee aroma", img: "coffee.jpeg" },
+    { name: "Vanilla Cream Cake", price: 1000, desc: "Classic vanilla taste", img: "vanila.jpeg" }
+];
+
+function showCakes() {
+    productsDiv.innerHTML = "";
+
+    cakes.forEach(cake => {
+        const div = document.createElement("div");
+        div.className = "product";
+
+        div.innerHTML = `
+            <img src="${cake.img}">
+            <h3>${cake.name}</h3>
+            <p>${cake.desc}</p>
+            <span>₹${cake.price}</span>
+            <button onclick="addToCart('${cake.name}', ${cake.price})">
+                Add to Cart
+            </button>
+        `;
+
+        productsDiv.appendChild(div);
+    });
+}
+
+function addToCart(name, price) {
+    const li = document.createElement("li");
+    li.textContent = `${name} - ₹${price}`;
+    cartItems.appendChild(li);
+
+    total += price;
+    totalSpan.textContent = total;
+}
+
+const brownies = [
+    {
+        name: "Chocolate Brownie",
+        price: 450,
+        desc: "Rich chocolate brownie with gooey center",
+        img: "chocolate.jpeg"
+    },
+    {
+        name: "Walnut Brownie",
+        price: 500,
+        desc: "Crunchy walnuts with soft chocolate base",
+        img: "walnut.jpeg"
+    },
+    {
+        name: "Fudge Brownie",
+        price: 550,
+        desc: "Extra fudgy & moist brownie",
+        img: "fudge1.jpeg"
+    },
+    
+];
+
+function showBrownies() {
+    productsDiv.innerHTML = "";
+
+    brownies.forEach(brownie => {
+        const div = document.createElement("div");
+        div.className = "product";
+
+        div.innerHTML = `
+            <img src="${brownie.img}">
+            <h3>${brownie.name}</h3>
+            <p>${brownie.desc}</p>
+            <span>₹${brownie.price}</span>
+            <button onclick="addToCart('${brownie.name}', ${brownie.price})">
+                Add to Cart
+            </button>
+        `;
+
+        productsDiv.appendChild(div);
+    });
+}
+
+const desserts = [
+    {
+        name: "Chocolate Lava Cake",
+        price: 650,
+        desc: "Warm chocolate cake with molten center",
+        img: "lava.jpeg"
+    },
+    {
+        name: "Caramel Custard",
+        price: 500,
+        desc: "Silky smooth custard with caramel topping",
+        img: "custard.jpeg"
+    }
+];
+
+function showDesserts() {
+    productsDiv.innerHTML = "";
+
+    desserts.forEach(dessert => {
+        const div = document.createElement("div");
+        div.className = "product";
+
+        div.innerHTML = `
+            <img src="${dessert.img}">
+            <h3>${dessert.name}</h3>
+            <p>${dessert.desc}</p>
+            <span>₹${dessert.price}</span>
+            <button onclick="addToCart('${dessert.name}', ${dessert.price})">
+                Add to Cart
+            </button>
+        `;
+
+        productsDiv.appendChild(div);
+    });
+}
+</script>
+</body>
+</html>
